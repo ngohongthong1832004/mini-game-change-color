@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  back-end:
+    build: ../../back-end
+    volumes:
+      - ../../back-end:/usr/src/app
+    ports:
+      - "1001:3000"
+  front-end:
+    build: .
+    volumes:
+      - ../my-app:/usr/src/app
+    depends_on:
+      - back-end
+    ports:
+      - "1004:80"
