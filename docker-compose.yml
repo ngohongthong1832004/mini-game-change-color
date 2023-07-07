@@ -6,7 +6,7 @@ services:
     volumes:
       - ../../back-end:/usr/src/app
     ports:
-      - "1001:3000"
+      - "3001:3000"
   front-end:
     build: .
     volumes:
@@ -14,4 +14,4 @@ services:
     depends_on:
       - back-end
     ports:
-      - "1004:80"
+      - "8888:80"

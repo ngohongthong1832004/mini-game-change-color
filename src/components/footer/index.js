@@ -18,7 +18,7 @@ const Footer = () => {
     }, [])
 
     const handleClickPost = () => {
-        fetch("http://localhost:3001/info", {
+        fetch("http://localhost:3001/post", {
             method: "POST"
         })
         .then(res => res.json())
