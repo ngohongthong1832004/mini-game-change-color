@@ -1,12 +1,19 @@
 version: '3'
 
 services:
+  db:
+    build: ../../DB
+    restart: always
+    ports:
+      - "3308:3306"
   back-end:
     build: ../../back-end
     volumes:
       - ../../back-end:/usr/src/app
     ports:
       - "3001:3000"
+    depends_on:
+      - db
   front-end:
     build: .
     volumes:
@@ -15,3 +22,5 @@ services:
       - back-end
     ports:
       - "8888:80"
+  
+    
